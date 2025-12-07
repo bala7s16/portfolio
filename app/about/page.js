@@ -43,8 +43,11 @@ export default function About() {
                     <Skills />
                 </div>
 
-                <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm">
-                    <RecentWork />
+                {/* Recent Work - Kept Premium Styling */}
+                <div className="bg-gray-900 dark:bg-black text-white py-12">
+                    <div className="container mx-auto px-6">
+                        <RecentWork />
+                    </div>
                 </div>
 
                 <div className="bg-gray-50 dark:bg-gray-900">

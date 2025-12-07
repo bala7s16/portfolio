@@ -23,6 +23,10 @@ export default function Skills() {
         {
             category: "AI / Automation",
             skills: ["Python", "OCR", "NLP", "ML Pipelines", "AI Utilities"]
+        },
+        {
+            category: "UI/UX Design",
+            skills: ["Figma", "Sketch", "Adobe Photoshop", "Canva"]
         }
     ];
 

@@ -27,7 +27,7 @@ export default function Hero() {
               I build <span className="font-semibold text-gray-900 dark:text-white">high-performance digital products</span>—from mobile apps to cloud-native enterprise platforms.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              With 12+ years of expertise across <span className="text-blue-600 dark:text-blue-400">Mobile</span> (Android, iOS, KMP, Flutter), <span className="text-purple-600 dark:text-purple-400">Full Stack</span> (.NET, Java, Node.js) and <span className="text-teal-600 dark:text-teal-400">Modern Web</span> (Next.js, React), I deliver solutions that are scalable, secure, and engineered to perform.
+              With 13+ years of expertise across <span className="text-blue-600 dark:text-blue-400">Mobile</span> (Android, iOS, KMP, Flutter), <span className="text-purple-600 dark:text-purple-400">Full Stack</span> (.NET, Java, Node.js) and <span className="text-teal-600 dark:text-teal-400">Modern Web</span> (Next.js, React), I deliver solutions that are scalable, secure, and engineered to perform.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
               From E-Commerce systems to AI-powered automation, I turn complex challenges into polished, user-centric experiences.
@@ -35,9 +35,7 @@ export default function Hero() {
           </div>
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-5 pt-4">
-            <a href="/resume.pdf" className="px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-              Download Resume
-            </a>
+
             <a href="/contact" className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-bold border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:shadow-xl hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 transition-all duration-300">
               Contact Me
             </a>
@@ -45,7 +43,7 @@ export default function Hero() {
 
           <div className="flex justify-center lg:justify-start items-center gap-3 pt-2 text-gray-500 font-medium">
             <span className="text-xl">📧</span>
-            <a href="mailto:bala.subburaj@outlook.com" className="hover:text-blue-600 transition-colors border-b border-transparent hover:border-blue-600">bala.subburaj@outlook.com</a>
+            <a href="mailto:mail@bala.ai.in" className="hover:text-blue-600 transition-colors border-b border-transparent hover:border-blue-600">mail@bala.ai.in</a>
           </div>
         </div>
 
@@ -55,9 +53,9 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full blur-[100px] opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
             <div className="relative w-full h-full rounded-[3rem] overflow-hidden border-8 border-white dark:border-gray-800 shadow-2xl rotate-3 group-hover:rotate-0 transition-all duration-500">
               <img
-                src="/profile.jpg"
+                src="/profile-cropped.png"
                 alt="Balamurugan Subburaj"
-                className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500"
+                className="w-full h-full object-cover object-top scale-105 group-hover:scale-100 transition-transform duration-500"
               />
             </div>
           </div>

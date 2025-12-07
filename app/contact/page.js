@@ -1,6 +1,40 @@
 "use client";
 
+import toast from 'react-hot-toast';
+
 export default function Contact() {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            subject: formData.get('subject'),
+            message: formData.get('message'),
+        };
+
+        const loadingToast = toast.loading('Sending message...');
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                toast.success('Message sent successfully!', { id: loadingToast });
+                e.target.reset();
+            } else {
+                toast.error('Failed to send message. Please try again.', { id: loadingToast });
+            }
+        } catch (error) {
+            toast.error('Something went wrong. Please try again.', { id: loadingToast });
+        }
+    };
+
     return (
         <div className="min-h-screen pt-24 pb-16 flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-6 relative overflow-hidden">
             {/* Background Elements */}
@@ -25,11 +59,11 @@ export default function Contact() {
                         </div>
 
                         <div className="space-y-6">
-                            <a href="mailto:bala.subburaj@outlook.com" className="flex items-center gap-6 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all group">
+                            <a href="mailto:mail@bala.ai.in" className="flex items-center gap-6 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all group">
                                 <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">📧</div>
                                 <div>
                                     <p className="text-sm text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Email</p>
-                                    <p className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors">bala.subburaj@outlook.com</p>
+                                    <p className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors">mail@bala.ai.in</p>
                                 </div>
                             </a>
 
@@ -54,27 +88,27 @@ export default function Contact() {
                     {/* Contact Form */}
                     <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl border border-white/20 dark:border-gray-700">
                         <h2 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">Send a Message</h2>
-                        <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                        <form className="space-y-6" onSubmit={handleSubmit}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">Name</label>
-                                    <input type="text" className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all" />
+                                    <input name="name" type="text" required className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all" />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">Email</label>
-                                    <input type="email" className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all" />
+                                    <input name="email" type="email" required className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all" />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
                                 <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">Subject</label>
-                                <input type="text" className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all" placeholder="Project Inquiry" />
+                                <input name="subject" type="text" required className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all" placeholder="Project Inquiry" />
                             </div>
                             <div className="space-y-2">
                                 <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">Message</label>
-                                <textarea className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all h-40 resize-none" placeholder="Tell me about your project..."></textarea>
+                                <textarea name="message" required className="w-full px-5 py-4 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all h-40 resize-none" placeholder="Tell me about your project..."></textarea>
                             </div>
-                            <button className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:opacity-90 transition-all transform hover:-translate-y-1">
+                            <button type="submit" className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:opacity-90 transition-all transform hover:-translate-y-1">
                                 Send Message
                             </button>
                         </form>
