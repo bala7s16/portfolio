@@ -9,7 +9,6 @@ export default function Home() {
       <Hero />
       <Stats />
       <WhyChooseMe />
-      <RecentWork limit={2} />
     </div>
   );
 }

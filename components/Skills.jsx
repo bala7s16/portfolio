@@ -27,6 +27,10 @@ export default function Skills() {
         {
             category: "UI/UX Design",
             skills: ["Figma", "Sketch", "Adobe Photoshop", "Canva"]
+        },
+        {
+            category: "Automation Testing",
+            skills: ["Appium", "Postman", "Test Scripts", "Performance Testing", "Mock Server"]
         }
     ];
 

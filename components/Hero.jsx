@@ -39,6 +39,9 @@ export default function Hero() {
             <a href="/contact" className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-bold border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:shadow-xl hover:border-blue-500 dark:hover:border-blue-400 hover:-translate-y-1 transition-all duration-300">
               Contact Me
             </a>
+            <a href="/resume" className="px-8 py-4 bg-blue-600 text-white font-bold rounded-xl shadow-md hover:shadow-xl hover:bg-blue-700 hover:-translate-y-1 transition-all duration-300">
+              View Resume
+            </a>
           </div>
 
           <div className="flex justify-center lg:justify-start items-center gap-3 pt-2 text-gray-500 font-medium">
